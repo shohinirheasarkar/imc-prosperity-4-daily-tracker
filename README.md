@@ -8,7 +8,7 @@ documenting my journey learning to trade!
 
 | day | date | concepts explored | action items | strategy ideas | backtest results |
 |-----|------|-----------------|--------------|----------------|-----------------|
-| 1 | 2025-03-30 | order books, market making, mean reversion, options, delta, black-scholes, implied vol | run eda on tutorial data, read past writeups | market making on tutorial products; mean reversion if price hugs rolling mean | — |
+| 1 | 2025-03-30 | order books, market making, mean reversion, options, delta, black-scholes, implied vol | read a past writeup (done), write a notebook to do exploratory data analysis (done) | none yet, still exploring | none yet |
 
 ---
 
