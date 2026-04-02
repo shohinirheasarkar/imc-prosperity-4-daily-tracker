@@ -12,7 +12,7 @@ documenting my journey learning to trade!
 | 1 | 2025-03-30 | order books, market making, mean reversion, options, delta, black-scholes, implied vol | read a past writeup (done), write a notebook to do exploratory data analysis (done) | none yet, still exploring | none yet |
 | 2 | 2025-03-31 | — | — | — | tired, taking the day off |
 | 3 | 2025-04-01 | — | — | — | busy, taking the day off |
-| 4 | 2025-04-02 | pair trading, arbitrage, market-taking, cointegration, following bots, cross-year data analysis | update master strategy notes, continue eda notebook | see strategy notes below | none yet |
+| 4 | 2025-04-02 | pair trading, arbitrage, market-taking, cointegration, following bots, cross-year data analysis, rolling mean, deviation analysis | update master strategy notes (done), complete tutorial eda notebook (done) | emeralds: market make around 10000. tomatoes: mean revert around rolling mean (w=200), threshold ±4.76 | emeralds: 3 price levels only (9996, 10000, 10004). tomatoes: deviation std=4.76, mean=0.03 — strong local mean reversion confirmed |
 
 ---
 
@@ -22,6 +22,7 @@ documenting my journey learning to trade!
 - for stable products, post bids slightly below mid and asks slightly above mid, collect the spread
 - the tighter and more stable the spread, the better this works
 - watch for products with low price deviation — good market making candidates
+- example: emeralds hover at exactly 10000 with only 3 price levels — textbook market making
 
 **market taking / directional trading**
 - if you can predict the next price move (via regression, rolling mean, or a signal), hit existing orders aggressively
@@ -31,6 +32,8 @@ documenting my journey learning to trade!
 - if a price historically hugs a mean, buy when it dips below and sell when it rises above
 - check visually with a rolling mean overlay — if the price keeps snapping back, mean reversion is viable
 - implied volatility can mean-revert too (e.g. round 4 coconut coupons from past competitions)
+- compute deviation from rolling mean — std of deviation is your trading threshold
+- example: tomatoes deviation std=4.76, mean=0.03 — buy when deviation < -4.76, sell when deviation > +4.76
 
 **pair trading / arbitrage**
 - find two products with a structural or statistical relationship
@@ -65,6 +68,7 @@ documenting my journey learning to trade!
 | order books | in progress |
 | market making | in progress |
 | mean reversion | in progress |
+| rolling mean / deviation analysis | done |
 | arbitrage / pair trading | in progress |
 | black-scholes | not started |
 | implied volatility | not started |
@@ -78,7 +82,7 @@ documenting my journey learning to trade!
 
 | round | products | strategy | pnl | status |
 |-------|----------|----------|-----|--------|
-| tutorial | tomatoes (tg01), emeralds (tg02) | tbd after eda | — | in progress |
+| tutorial | tomatoes (tg01), emeralds (tg02) | emeralds: market make @ 10000. tomatoes: mean revert w=200 threshold ±4.76 | — | eda done, strategy next |
 | 1 | — | — | — | not started |
 
 ---
