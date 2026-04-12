@@ -13,6 +13,19 @@ documenting my journey learning to trade!
 | 2 | 2025-03-31 | — | — | — | tired, taking the day off |
 | 3 | 2025-04-01 | — | — | — | busy, taking the day off |
 | 4 | 2025-04-02 | pair trading, arbitrage, market-taking, cointegration, following bots, cross-year data analysis, rolling mean, deviation analysis | update master strategy notes (done), complete tutorial eda notebook (done) | emeralds: market make around 10000. tomatoes: mean revert around rolling mean (w=200), threshold ±4.76 | emeralds: 3 price levels only (9996, 10000, 10004). tomatoes: deviation std=4.76, mean=0.03 — strong local mean reversion confirmed |
+| 5-7 | 2025-04-03 to 2025-04-05 | — | — | — | mia, taking time off |
+| 8 | 2025-04-12 | TradingState structure, order submission format, position limits, traderData persistence, market taking vs making, reversion speed analysis | write and submit trader.py (done) | emeralds: market make at 9998/10002 up to position limit 80. tomatoes: mean revert w=200 threshold ±4.0 order size 10, market take on signal | first submission uploaded — awaiting results |
+
+---
+
+## to-do for next session
+
+- [ ] read & understand the full prosperity wiki thoroughly
+- [ ] review current algo strategies and identify improvements
+- [ ] read: https://github.com/MarkBrezina/Ctrl-Alt-DefeatTheMarket/blob/main/README.md
+- [ ] check performance results from first submission and interpret logs
+- [ ] tune tomato order size and threshold based on results
+- [ ] confirm position limits from wiki for future rounds
 
 ---
 
@@ -27,13 +40,15 @@ documenting my journey learning to trade!
 **market taking / directional trading**
 - if you can predict the next price move (via regression, rolling mean, or a signal), hit existing orders aggressively
 - combine with market making: make in normal conditions, take when price is extreme
+- for mean reversion, market taking is preferred — speed matters when median reversion time is only 13 timestamps
 
 **mean reversion**
 - if a price historically hugs a mean, buy when it dips below and sell when it rises above
 - check visually with a rolling mean overlay — if the price keeps snapping back, mean reversion is viable
 - implied volatility can mean-revert too (e.g. round 4 coconut coupons from past competitions)
 - compute deviation from rolling mean — std of deviation is your trading threshold
-- example: tomatoes deviation std=4.76, mean=0.03 — buy when deviation < -4.76, sell when deviation > +4.76
+- example: tomatoes deviation std~4.0, mean=0.03 — buy when deviation < -4.0, sell when deviation > +4.0
+- median reversion time for tomatoes: 13 timestamps — very fast, trade aggressively
 
 **pair trading / arbitrage**
 - find two products with a structural or statistical relationship
@@ -70,6 +85,8 @@ documenting my journey learning to trade!
 | mean reversion | in progress |
 | rolling mean / deviation analysis | done |
 | arbitrage / pair trading | in progress |
+| traderData / state persistence | done |
+| position limits | done |
 | black-scholes | not started |
 | implied volatility | not started |
 | delta hedging | not started |
@@ -82,7 +99,7 @@ documenting my journey learning to trade!
 
 | round | products | strategy | pnl | status |
 |-------|----------|----------|-----|--------|
-| tutorial | tomatoes (tg01), emeralds (tg02) | emeralds: market make @ 10000. tomatoes: mean revert w=200 threshold ±4.76 | — | eda done, strategy next |
+| tutorial | tomatoes (tg01), emeralds (tg02) | emeralds: market make @ 9998/10002 limit 80. tomatoes: mean revert w=200 threshold ±4.0 size 10 | awaiting results | submitted |
 | 1 | — | — | — | not started |
 
 ---
@@ -90,8 +107,10 @@ documenting my journey learning to trade!
 ## resources
 
 - [imc prosperity](https://prosperity.imc.com)
+- [prosperity wiki](https://imc-prosperity.notion.site)
 - [black-scholes — wikipedia](https://en.wikipedia.org/wiki/Black%E2%80%93Scholes_model)
 - [prosperity 2023 — stanford cardinal writeup](https://github.com/ShubhamAnandJain/IMC-Prosperity-2023-Stanford-Cardinal)
+- [ctrl-alt-defeatthemarket writeup](https://github.com/MarkBrezina/Ctrl-Alt-DefeatTheMarket/blob/main/README.md)
 
 ---
 
